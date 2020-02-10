@@ -11,4 +11,6 @@ steps:
   - name: test
     image: php:7
     commands:
+      - php artisan key:generate
+      - php artisan config:cache
       - vendor/bin/phpunit
