@@ -3,7 +3,7 @@ type: docker
 name: default
 
 steps:
-  - name: install
+  - name: backend
     image: composer
     commands:
       - composer install
@@ -11,6 +11,7 @@ steps:
   - name: test
     image: php:7
     commands:
+      - cp .env.example .env
       - php artisan key:generate
       - php artisan config:cache
-      - vendor/bin/phpunit
+      - ./vendor/bin/phpunit
