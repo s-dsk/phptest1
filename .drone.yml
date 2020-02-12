@@ -7,10 +7,6 @@ steps:
     image: composer
     commands:
       - composer install
-
-  - name: test
-    image: php:7
-    commands:
       - cp .env.example .env
       - php artisan key:generate
       - php artisan config:cache
